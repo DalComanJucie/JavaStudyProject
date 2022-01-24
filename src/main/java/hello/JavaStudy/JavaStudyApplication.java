@@ -10,6 +10,14 @@ public class JavaStudyApplication
 {
 	public static void main(String[] args)
 	{
+		Loop2: for(int i = 2; i <= 9; ++i)
+		{
+			if(i == 5)
+				break Loop2;
+			break;
+		}
+
+
 		long test1 = 2222222222222222222L;
 		int test2 = (int)test1;
 
@@ -18,6 +26,7 @@ public class JavaStudyApplication
 
 		boolean test6 = test3.equals(test4);
 		boolean test7 = test3 == "abc" ? true : false;
+
 		System.out.println(test6);
 		System.out.println(test7);
 
