@@ -1,7 +1,6 @@
 package hello.JavaStudy;
 
-import classpackage.Child;
-import enumpackage.EnumByte;
+import hello.JavaStudy.StandardJava.StandardJava;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,50 +9,9 @@ public class JavaStudyApplication
 {
 	public static void main(String[] args)
 	{
-		Loop2: for(int i = 2; i <= 9; ++i)
-		{
-			if(i == 5)
-				break Loop2;
-			break;
-		}
-
-
-		long test1 = 2222222222222222222L;
-		int test2 = (int)test1;
-
-		String test3 = "abc";
-		String test4 = "abc";
-
-		boolean test6 = test3.equals(test4);
-		boolean test7 = test3 == "abc" ? true : false;
-
-		System.out.println(test6);
-		System.out.println(test7);
-
-		System.out.println(test1);
-		System.out.println(test2);
-
-
-		int a = 10;
-		float b = 20;
-		float c = a + b;
-
-		EnumByte s = EnumByte.A;
-
-		switch(s)
-		{
-			case A:
-				int d = s.GetData();
-				break;
-			case B:
-				break;
-			case C:
-				break;
-		}
-
-		//Child a = new Child();
-		//boolean booltype = a.ChildPeople();
-		//System.out.println(booltype);
+		//configue를 별도로 생성해 준다는 항목이 있는데, 그거 맞는거야 ?...
+		StandardJava standardJava = new StandardJava();
+		standardJava.Update();
 		SpringApplication.run(JavaStudyApplication.class, args);
 	}
 
