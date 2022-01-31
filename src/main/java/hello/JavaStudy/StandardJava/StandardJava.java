@@ -1,9 +1,20 @@
 package hello.JavaStudy.StandardJava;
 
+import hello.JavaStudy.StandardJava.inheritance.Parents;
+import org.springframework.boot.autoconfigure.jmx.ParentAwareNamingStrategy;
+
 public class StandardJava {
     int a ;
     int b;
     static int c;
+    static Object objects = new Object();
+
+
+    public static <T, I> I GetName(Class<T> convertValue)
+    {
+
+        return null;
+    }
 
     static { c = 20; }
     { a =20; b=30; }
