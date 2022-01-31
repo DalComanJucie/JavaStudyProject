@@ -12,6 +12,9 @@ public class JavaStudyApplication
 		//configue를 별도로 생성해 준다는 항목이 있는데, 그거 맞는거야 ?...
 		StandardJava standardJava = new StandardJava();
 		standardJava.Update();
+
+
+
 		SpringApplication.run(JavaStudyApplication.class, args);
 	}
 
