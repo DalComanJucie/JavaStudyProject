@@ -8,8 +8,16 @@ import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    //구체적인 클래스에 대해서 모른다. 추상 객체만 알고 있다.
+    //현재 orderServiceImpl이 해당 정책을 선택하고 구현까지 맡아버린다.
+    //역활과 구현을 분리 해야 한다.
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
@@ -20,3 +28,5 @@ public class OrderServiceImpl implements OrderService{
 
 
 }
+
+//AppConfig 구현객체를 설정하고 연결하는 녀석.
