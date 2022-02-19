@@ -5,6 +5,7 @@ import hello.JavaStudy.StandardJava.Collection;
 import javax.swing.text.html.Option;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 class DAO
 {
@@ -90,5 +91,49 @@ public class CollectionTest {
         if(dao != null)
             PrintDiffTime("Collection HashMap find test End :");
 
+        List<TestClass> testClassList = new ArrayList<>();
+        for(int i = 0; i < 1000; ++i)
+        {
+            testClassList.add(new TestClass());
+            testClassList.add(new TestClass());
+            testClassList.add(new TestClass());
+        }
+        PrintDiffTime("Stream collect to Map : test Start");
+        Map<Integer, TestClass> testClassMap = testClassList.stream().collect(Collectors.toMap(p->p.Key, p->p));
+        PrintDiffTime("Stream collect to Map : test End");
+
+        PrintDiffTime("List to Map just loop : test Start");
+        Map<Integer, TestClass> testClassMap2 = new HashMap<>();
+        for(TestClass testClass : testClassList)
+        {
+            testClassMap2.put(testClass.Key, testClass);
+        }
+        PrintDiffTime("List to Map just loop : test End");
+
+        for(TestClass testClass : testClassMap.values())
+        {
+            //System.out.println("key :" + testClass.Key + " value : " + testClass.values);
+        }
     }
+
+
+    public void Collection()
+    {
+        return;
+    }
+}
+
+class TestClass
+{
+    public static int increaValue;
+    public int Key;
+    public float values;
+
+    public TestClass()
+    {
+        increaValue++;
+        this.Key = increaValue;
+        this.values = increaValue * 2;
+    }
+
 }

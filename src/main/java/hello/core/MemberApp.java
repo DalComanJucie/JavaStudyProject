@@ -15,5 +15,9 @@ public class MemberApp {
 
         Member member = new Member(1L,  "Member1", Grade.VIP);
         memberService.join(member);
+
+        //C R U D 이게 필요함.
+        //Create / Read / Update / Delete [Delete는 아에 상태를 D로 바꾸는것]
+
     }
 }
