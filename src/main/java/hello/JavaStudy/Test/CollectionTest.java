@@ -1,5 +1,7 @@
 package hello.JavaStudy.Test;
 
+import hello.JavaStudy.CollectConverter.Global;
+import hello.JavaStudy.CollectConverter.ListToMapConverter;
 import hello.JavaStudy.StandardJava.Collection;
 
 import javax.swing.text.html.Option;
@@ -90,25 +92,40 @@ public class CollectionTest {
         DAO dao = CollectionMap.get(findData);
         if(dao != null)
             PrintDiffTime("Collection HashMap find test End :");
-
         List<TestClass> testClassList = new ArrayList<>();
-        for(int i = 0; i < 1000; ++i)
+        for(int i = 0; i < 20; ++i)
         {
             testClassList.add(new TestClass());
             testClassList.add(new TestClass());
             testClassList.add(new TestClass());
         }
-        PrintDiffTime("Stream collect to Map : test Start");
+        PrintDiffTime("###");
+        PrintDiffTime("Collection HashMap find test Init sec ");
+        PrintDiffTime("Stream collect to Map : test Start sec ");
         Map<Integer, TestClass> testClassMap = testClassList.stream().collect(Collectors.toMap(p->p.Key, p->p));
-        PrintDiffTime("Stream collect to Map : test End");
+        PrintDiffTime("Stream collect to Map : test End sec ");
 
-        PrintDiffTime("List to Map just loop : test Start");
+        PrintDiffTime("###");
+        PrintDiffTime("Collection HashMap find test Init sec ");
+        PrintDiffTime("List to Map just loop : test Start sec ");
         Map<Integer, TestClass> testClassMap2 = new HashMap<>();
         for(TestClass testClass : testClassList)
         {
             testClassMap2.put(testClass.Key, testClass);
         }
-        PrintDiffTime("List to Map just loop : test End");
+        PrintDiffTime("List to Map just loop : test End sec ");
+
+        PrintDiffTime("###");
+        PrintDiffTime("Collection HashMap find test Init sec ");
+        PrintDiffTime("List to Map listAsMap : test Start sec ");
+        Map<Integer, TestClass> testClassMap3 = Global.listAsMap(testClassList,
+                new ListToMapConverter<Integer, TestClass>() {
+            @Override
+            public Integer getKey(TestClass item) {
+                return item.Key;
+            }
+        });
+        PrintDiffTime("List to Map listAsMap : test End sec ");
 
         for(TestClass testClass : testClassMap.values())
         {

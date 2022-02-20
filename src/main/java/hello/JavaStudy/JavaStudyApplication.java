@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class JavaStudyApplication
@@ -16,7 +17,6 @@ public class JavaStudyApplication
 		CollectionTest collectionTest = new CollectionTest();
 		collectionTest.Init();
 		collectionTest.Start();
-
 
 //		Set<Integer> setTestContainer = new HashSet<>();
 //		boolean istrue = setTestContainer.add(1);
