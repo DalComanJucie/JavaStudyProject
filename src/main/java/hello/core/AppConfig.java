@@ -18,13 +18,13 @@ import org.springframework.context.annotation.Configuration;
 //구성을 바꾸기 위해서  App config 만 바꾸자.
 @Configuration
 public class AppConfig {
-    @Bean
+
+    @Bean //메서드 이름은 bean의 이름으로 한다. -> 특별한 경우가 아니면 이름을 바꾸지 않고 관례를 따르자.
     public MemberService memberService(){
         return new MemberServiceImpl(memberRepository(),discountPolicy());
     }
 
-    //Memory에서 DB로 바꾸면 여기만 바꾸면됨.
-    @Bean
+    @Bean //Memory에서 DB로 바꾸면 여기만 바꾸면됨.
     public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
@@ -35,8 +35,7 @@ public class AppConfig {
     }
 
     @Bean
-    public DiscountPolicy discountPolicy()
-    {
+    public DiscountPolicy discountPolicy() {
         //return new FixDiscountPolicy();
         return new RateDiscountPolicy();
     }
